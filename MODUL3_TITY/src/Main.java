@@ -14,7 +14,7 @@ public class Main {
                         System.out.print("\nMasukkan sisi persegi: ");
                         double side = e.nextDouble();
                         if(side < 1) {
-                            System.out.println("\nError: Input tidak boleh di bawah 1!\n");
+                            System.out.println("\nError!\n");
                             break;
                         }
                         kalkulator.setSquare(side);
@@ -22,8 +22,10 @@ public class Main {
                         thread.start();
                         try {
                             thread.join();
-                        } catch (InterruptedException e) {
-                            System.out.println("Thread terinterupsi!");
+                        } catch (InterruptedException er) {
+                            er.printStackTrace();
+                            System.out.println("Thread interupsi!");
+                            break;
                         }
                         System.out.println("\nLuas persegi: " + kalkulator.getSquare() + "\n");
                         break;
@@ -31,7 +33,7 @@ public class Main {
                         System.out.print("\nMasukkan jari-jari lingkaran: ");
                         double radius = e.nextDouble();
                         if(radius < 1) {
-                            System.out.println("\nError: Input tidak boleh di bawah 1!\n");
+                            System.out.println("\nError!\n");
                             break;
                         }
                         kalkulator.setCircle(radius);
@@ -39,8 +41,10 @@ public class Main {
                         thread2.start();
                         try {
                             thread2.join();
-                        } catch (InterruptedException e) {
-                            System.out.println("Thread terinterupsi!");
+                        } catch (InterruptedException ee) {
+                            ee.printStackTrace();
+                            System.out.println("Thread interupsi!");
+                            break;
                         }
                         System.out.println("\nLuas lingkaran: " + kalkulator.getCircle() + "\n");
                         break;
@@ -60,7 +64,8 @@ public class Main {
                         thread3.start();
                         try {
                             thread3.join();
-                        } catch (InterruptedException e) {
+                        } catch (InterruptedException ex) {
+                            ex.printStackTrace();
                             System.out.println("Thread interupsi!");
                         }
                         System.out.println("\nLuas trapesium: " + kalkulator.getTrapezoid() + "\n");
@@ -74,9 +79,11 @@ public class Main {
                         break;
                 }
 
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException ez) {
+                ez.printStackTrace();
                 System.out.println("\nError!\n");
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException ec) {
+                ec.printStackTrace();
                 System.out.println("\nError!\n");
                 break;
             } 
